@@ -6,7 +6,7 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 07:45:53 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/08 14:47:42 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/09 14:32:07 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ void		rotate_loop(t_circle **a, int loop_rr);
 int			smart_s_rrr_counter(t_circle **a);
 int			smart_s_rr_counter(t_circle **a);
 void		logic_for_6_200(t_circle **a, t_circle **b, size_t perimeter);
+void		rot_x(t_circle **b, int index);
 
 #endif
