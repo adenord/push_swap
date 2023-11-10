@@ -6,7 +6,7 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 08:36:45 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/09 14:58:13 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/10 08:34:35 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ int	main(int argc, char **argv)
 	if (!c_a || !no_duplicates(&c_a))
 		return (error());
 	indexer(&c_a, circle_size(c_a));
-	circle_display(&c_a, &c_b);
+	// circle_display(&c_a, &c_b);
 	logic_core(&c_a, &c_b);
-	if (is_sort_or_not(c_a))
-		circle_display(&c_a, &c_b);
+	// if (is_sort_or_not(c_a))
+	// 	circle_display(&c_a, &c_b);
 	// circle_display(&c_a, &c_b);
 	clear_mess(&c_a, &c_b);
 }

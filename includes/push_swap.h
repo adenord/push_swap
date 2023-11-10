@@ -6,7 +6,7 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 07:45:53 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/09 14:32:07 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/10 08:32:55 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ void		logic_for_3(t_circle **a);
 void		logic_for_4_5(t_circle **a, t_circle **b, size_t perimeter);
 int			smart_rr_counter(t_circle **a, t_circle **b);
 int			smart_rrr_counter(t_circle **a, t_circle **b);
-void		reverse_rotate_loop(t_circle **a, int loop_rrr);
-void		rotate_loop(t_circle **a, int loop_rr);
+void		reverse_rotate_loop(t_circle **a, int loop_rrr, int flag);
+void		rotate_loop(t_circle **a, int loop_rr, int flag);
 int			smart_s_rrr_counter(t_circle **a);
 int			smart_s_rr_counter(t_circle **a);
 void		logic_for_6_200(t_circle **a, t_circle **b, size_t perimeter);
-void		rot_x(t_circle **b, int index);
+void		rot_x(t_circle **a, t_circle **b, int index);
 
 #endif

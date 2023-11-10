@@ -6,54 +6,38 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:02:37 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/08 11:11:15 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/09 20:38:18 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	stay_original_rr(t_circle **a, int loop)
-{
-	while (loop > 0)
-	{
-		circle_first_prev(a);
-		loop--;
-	}
-}
-
 int	smart_s_rr_counter(t_circle **a)
 {
-	int	ret;
+	int			ret;
+	t_circle	*current;
 
 	ret = 0;
-	while ((*a)->order != 1)
+	current = *a;
+	while (current->order != 1)
 	{
-		circle_first_next(a);
+		current = current->next;
 		ret++;
 	}
-	stay_original_rr(a, ret);
 	return (ret);
-}
-
-static void	stay_original_rrr(t_circle **a, int loop)
-{
-	while (loop > 0)
-	{
-		circle_first_next(a);
-		loop--;
-	}
 }
 
 int	smart_s_rrr_counter(t_circle **a)
 {
-	int	ret;
+	int			ret;
+	t_circle	*current;
 
 	ret = 0;
-	while ((*a)->order != 1)
+	current = *a;
+	while (current->order != 1)
 	{
-		circle_first_prev(a);
+		current = current->prev;
 		ret++;
 	}
-	stay_original_rrr(a, ret);
 	return (ret);
 }
