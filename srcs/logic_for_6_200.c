@@ -6,7 +6,7 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:21:08 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/10 22:30:35 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/11 00:09:29 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static void	put_in_order_in_b(t_circle **a, t_circle **b, size_t perimeter)
 
 	min_moy = perimeter / 3;
 	i = 0;
-	while (i < (min_moy * 2))
+	while (i < (min_moy * 2) && circle_size(*a) <= 3)
 	{
-		if ((*a)->order <= (int)(min_moy * 2))
+		if ((*a)->order <= (int)(min_moy * 2) && (*a)->order > (int)perimeter - 3)
 		{
 			push_b(a, b);
 			i++;
@@ -30,6 +30,27 @@ static void	put_in_order_in_b(t_circle **a, t_circle **b, size_t perimeter)
 			else if ((*b)->order < (int)min_moy)
 				rotate_b(b);
 		}
+		else
+			rotate_a(a);
+	}
+}
+
+static void	put_last_part_in_b_2(t_circle **a, t_circle **b, size_t perimeter)
+{
+	int	i;
+
+	i = (((perimeter / 3) * 2) + ((perimeter / 3) / 3) * 2);
+	while (circle_size(*b) < (size_t)i - 1 && circle_size(*a) > 3)
+	{
+		if ((*a)->order < i)
+			push_b(a, b);
+		else
+			rotate_a(a);
+	}
+	while (circle_size(*a) > 3)
+	{
+		if ((*a)->order <= (int)perimeter - 3)
+			push_b(a, b);
 		else
 			rotate_a(a);
 	}
@@ -51,27 +72,6 @@ static void	put_last_part_in_b(t_circle **a, t_circle **b, size_t perimeter)
 			rotate_a(a);
 	}
 	put_last_part_in_b_2(a, b, perimeter);
-}
-
-static void	put_last_part_in_b_2(t_circle **a, t_circle **b, size_t perimeter)
-{
-	int	i;
-
-	i = (((perimeter / 3) * 2) + ((perimeter / 3) / 3) * 2);
-	while (circle_size(*b) < (size_t)i - 1)
-	{
-		if ((*a)->order < i)
-			push_b(a, b);
-		else
-			rotate_a(a);
-	}
-	while (circle_size(*a) > 3)
-	{
-		if ((*a)->order <= (int)perimeter - 3)
-			push_b(a, b);
-		else
-			rotate_a(a);
-	}
 }
 
 // static void	put_last_part_in_b(t_circle **a, t_circle **b, size_t perimeter)
