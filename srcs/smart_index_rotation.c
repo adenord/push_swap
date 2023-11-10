@@ -6,84 +6,77 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:12:06 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/10 08:32:14 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/10 15:11:08 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	smart_index_rr(t_circle **circle, int index)
+static int	have_future(t_circle **b, int index, int flag)
 {
+	t_circle	*current;
 	int			i;
-	t_circle	*current;
 
-	i = 0;
-	current = *circle;
-	while ((current)->order != index && i < (int)circle_size(*circle))
-	{
-		current = (current)->next;
-		i++;
-	}
-	return (i);
-}
-
-static int	smart_index_rrr(t_circle **circle, int index)
-{
-	int	i;
-	t_circle	*current;
-
-	i = 0;
-	current = *circle;
-	while (((current)->order != index) && i < (int)circle_size(*circle))
-	{
-		current = (current)->prev;
-		i++;
-	}
-	return (i);
-}
-
-static void	exception_opti(t_circle **a, t_circle **b, int index, int flag)
-{
+	i = (*b)->order;
 	if (flag == 0)
-		rotate_loop(b, index, 1);
-	if (flag == 1)
-		reverse_rotate_loop(b, index, 1);
-	push_a(a, b);
-	rotate_a(a);
+		current = (*b)->next;
+	else
+		current = (*b)->prev;
+	while (current->order != index)
+	{
+		if (current->order == i + 1)
+			i++;
+		if (flag == 0)
+			current = current->next;
+		else
+			current = current->prev;
+	}
+	if (i == index - 1)
+		return (1);
+	return(0);
 }
 
-static int	is_min(int a, int b, int c, int d)
+static void	pre_reverse_rotate_loop(t_circle **a, t_circle **b, int index)
 {
-	if (a <= b && a <= c && a <= d)
-		return (a);
-	if (b <= a && b <= c && b <= d)
-		return (b);
-	if (c <= a && c <= b && c <= d)
-		return (c);
-	if (d <= a && d <= b && d <= c)
-		return (d);
-	return (0);
+	while ((*b)->order != index)
+	{
+		if ((*b)->order == index)
+			push_a(a, b);
+		if (have_future(b, index, 1))
+		{
+			push_a(a, b);
+			rotate_a(a);
+		}
+		else
+			reverse_rotate_b(b);
+	}
+}
+
+static void	pre_rotate_loop(t_circle **a, t_circle **b, int index)
+{
+	while ((*b)->order != index)
+	{
+		if ((*b)->order == index)
+			push_a(a, b);
+		if (have_future(b, index, 0))
+		{
+			push_a(a, b);
+			rotate_a(a);
+		}
+		else
+			rotate_b(b);
+	}
 }
 
 void	rot_x(t_circle **a, t_circle **b, int index)
 {
 	int	rr;
 	int rrr;
-	int	o_rr;
-	int o_rrr;
 
 	rr = smart_index_rr(b, index);
 	rrr = smart_index_rrr(b, index);
-	o_rr = smart_index_rr(b, index - 1);
-	o_rrr = smart_index_rrr(b, index - 1);
-	if (is_min(rr, rrr, o_rr, o_rrr) == o_rr)
-		exception_opti(a, b, o_rr, 0);
-	else if (is_min(rr, rrr, o_rr, o_rrr) == o_rrr)
-		exception_opti(a, b, o_rrr, 1); 
-	else if (rr <= rrr)
-	{
-		rotate_loop(b, rr, 1);
-	}
+	if (rr <= rrr)
+		pre_rotate_loop(a, b, index);
 	else
-		reverse_rotate_loop(b, rrr, 1);
+		pre_reverse_rotate_loop(a, b, index);
 }

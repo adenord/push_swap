@@ -6,7 +6,7 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:21:08 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/10 08:59:00 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/10 15:11:20 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	put_last_part_in_b(t_circle **a, t_circle **b, size_t perimeter)
 			push_b(a, b);
 		if ((*b)->order > partition_s && (*b)->order <= partition_e)
 			rotate_b(b);
-		*a = (*a)->next;
+		rotate_a(a);
 	}
 }
 
