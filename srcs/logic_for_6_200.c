@@ -6,7 +6,7 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:21:08 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/10 15:11:20 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/10 16:01:33 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,9 @@ static void	put_last_part_in_b(t_circle **a, t_circle **b, size_t perimeter)
 		if ((*a)->order <= (int)(perimeter - 3))
 			push_b(a, b);
 		if ((*b)->order > partition_s && (*b)->order <= partition_e)
-			rotate_b(b);
-		rotate_a(a);
+			rotate_all(a, b);
+		else
+			rotate_a(a);
 	}
 }
 
@@ -67,6 +68,5 @@ void	logic_for_6_200(t_circle **a, t_circle **b, size_t perimeter)
 			push_a(a, b);
 		else
 			rot_x(a, b, (*a)->order - 1);
-		// circle_display(a, b);
 	}
 }
