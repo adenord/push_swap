@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   logic_core.c                                       :+:      :+:    :+:   */
+/*   logic_for_500.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 14:07:19 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/11 12:14:31 by adenord          ###   ########.fr       */
+/*   Created: 2023/11/11 12:06:23 by adenord           #+#    #+#             */
+/*   Updated: 2023/11/11 16:17:10 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	logic_core(t_circle **a, t_circle **b)
+void	logic_for_500(t_circle **a, t_circle **b, size_t perimeter)
 {
-	size_t	perimeter;
-
-	perimeter = circle_size(*a);
-	if (is_final_sort_or_not(*a))
-		return ;
-	else if (perimeter == 2)
-		rotate_a(a);
-	else if (perimeter == 3)
+	put_in_b(a, b, perimeter);
+	put_last_in_b(a, b, perimeter);
+	if (!is_sort_or_not(*a))
 		logic_for_3(a);
-	else if (perimeter > 3 && perimeter < 7)
-		logic_for_5(a, b, perimeter);
-	else if (perimeter > 6 && perimeter < 200)
-		logic_for_100(a, b, perimeter);
-	else
-		logic_for_500(a, b, perimeter);
+	while (!is_final_sort_or_not(*a))
+	{
+		if ((*a)->prev->order == (*a)->order - 1)
+			rot_x(a, b, (*a)->order - 2, 1);
+		else if ((*b)->order >= (*a)->order - 1)
+			push_a(a, b);
+		else
+			rot_x(a, b, (*a)->order - 1, 0);
+		// circle_display(a, b);
+	}
 }

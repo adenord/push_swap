@@ -6,7 +6,7 @@
 #    By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 07:47:37 by adenord           #+#    #+#              #
-#    Updated: 2023/11/11 10:56:30 by adenord          ###   ########.fr        #
+#    Updated: 2023/11/11 15:52:22 by adenord          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ srcs/circle_size.c srcs/error.c srcs/arg_validator.c srcs/kreator.c \
 srcs/no_duplicates.c srcs/indexer.c srcs/clear_mess.c srcs/is_sort_or_not.c \
 srcs/logic_core.c srcs/logic_for_3.c srcs/logic_for_5.c srcs/smart_counter_for_5.c \
 srcs/loop.c srcs/smart_counters.c srcs/logic_for_100.c \
-srcs/smart_index_rotation.c
+srcs/smart_index_rotation.c srcs/logic_for_500.c srcs/filler_500.c
 CC := gcc
 CPPFLAGS := -I includes/
 CFLAGS := -Wall -Wextra -Werror
