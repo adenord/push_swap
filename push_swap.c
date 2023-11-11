@@ -6,7 +6,7 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 08:36:45 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/11 00:09:48 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/11 10:29:42 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ int	main(int argc, char **argv)
 	logic_core(&c_a, &c_b);
 	// if (is_sort_or_not(c_a))
 	// 	circle_display(&c_a, &c_b);
-	// circle_display(&c_a, &c_b);
+	circle_display(&c_a, &c_b);
 	clear_mess(&c_a, &c_b);
 }

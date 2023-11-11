@@ -6,7 +6,7 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:13:00 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/10 08:34:03 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/11 10:54:27 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,22 @@ static void	final_sorting(t_circle **a, int loop_rr, int loop_rrr)
 		reverse_rotate_loop(a, loop_rrr, 0);
 }
 
-void	logic_for_4_5(t_circle **a, t_circle **b, size_t perimeter)
+void	logic_for_5(t_circle **a, t_circle **b, size_t perimeter)
 {
 	int	loop_rr;
 	int	loop_rrr;
 
 	push_b(a, b);
-	if (perimeter == 5)
+	if (perimeter >= 5)
+		push_b(a, b);
+	if (perimeter == 6)
 		push_b(a, b);
 	if (!is_sort_or_not(*a))
 		logic_for_3(a);
 	while (circle_size(*a) < perimeter)
 	{
-		loop_rr = smart_rr_counter(a, b);
-		loop_rrr = smart_rrr_counter(a, b);
+		loop_rr = smart_rr_counter(a, b, perimeter);
+		loop_rrr = smart_rrr_counter(a, b, perimeter);
 		if (loop_rr <= loop_rrr)
 			rotate_loop(a, loop_rr, 0); 
 		else

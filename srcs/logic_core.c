@@ -6,7 +6,7 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 14:07:19 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/08 14:48:22 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/11 10:55:36 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	logic_core(t_circle **a, t_circle **b)
 		rotate_a(a);
 	else if (perimeter == 3)
 		logic_for_3(a);
-	else if (perimeter == 5 || perimeter == 4)
-		logic_for_4_5(a, b, perimeter);
-	else if (perimeter > 5 && perimeter < 200)
-		logic_for_6_200(a, b, perimeter);
+	else if (perimeter > 3 && perimeter < 7)
+		logic_for_5(a, b, perimeter);
+	else if (perimeter > 6 && perimeter < 200)
+		logic_for_100(a, b, perimeter);
 }

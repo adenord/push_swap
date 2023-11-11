@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   logic_for_6_200.c                                  :+:      :+:    :+:   */
+/*   logic_for_100.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:21:08 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/11 00:09:29 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/11 10:57:34 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static void	put_in_order_in_b(t_circle **a, t_circle **b, size_t perimeter)
 
 	min_moy = perimeter / 3;
 	i = 0;
-	while (i < (min_moy * 2) && circle_size(*a) <= 3)
+	while (i < (min_moy * 2))
 	{
-		if ((*a)->order <= (int)(min_moy * 2) && (*a)->order > (int)perimeter - 3)
+		if ((*a)->order <= (int)(min_moy * 2))
 		{
 			push_b(a, b);
 			i++;
@@ -74,26 +74,7 @@ static void	put_last_part_in_b(t_circle **a, t_circle **b, size_t perimeter)
 	put_last_part_in_b_2(a, b, perimeter);
 }
 
-// static void	put_last_part_in_b(t_circle **a, t_circle **b, size_t perimeter)
-// {
-// 	int	partition_s;
-// 	int	partition_e;
-//
-//
-// 	partition_s = (perimeter / 3) * 2;
-// 	partition_e = ((perimeter / 3) * 2) + (perimeter / 3) / 2;
-// 	while (circle_size(*a) != 3)
-// 	{
-// 		if ((*a)->order <= (int)(perimeter - 3))
-// 			push_b(a, b);
-// 		if ((*b)->order > partition_s && (*b)->order <= partition_e)
-// 			rotate_all(a, b);
-// 		else
-// 			rotate_a(a);
-// 	}
-// }
-
-void	logic_for_6_200(t_circle **a, t_circle **b, size_t perimeter)
+void	logic_for_100(t_circle **a, t_circle **b, size_t perimeter)
 {
 	put_in_order_in_b(a, b, perimeter);
 	put_last_part_in_b(a, b, perimeter);
