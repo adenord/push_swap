@@ -6,7 +6,7 @@
 #    By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 07:47:37 by adenord           #+#    #+#              #
-#    Updated: 2023/11/11 15:52:22 by adenord          ###   ########.fr        #
+#    Updated: 2023/11/12 14:15:47 by adenord          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,19 +31,19 @@ ARFLAGS := rcs
 
 OBJS := $(SRCS:.c=.o)
 NAME_LIB := push_swap.a
-NAME_EXEC = push_swap
+NAME = push_swap
 
-all : $(NAME_EXEC)
+all : $(NAME)
 
 writing : 
 	echo "\033[32mCreating your binary ...\033[0m"
 
-$(NAME_EXEC) : writing $(OBJS)
+$(NAME) : writing $(OBJS)
 	make -C srcs/libft/
 	mv srcs/libft/libft.a .
 	mv libft.a $(NAME_LIB)
 	$(AR) $(ARFLAGS) $(NAME_LIB) $(OBJS)
-	$(CC) $(CPPFLAGS) $(CFLAGS) push_swap.c $(NAME_LIB) -o $(NAME_EXEC)
+	$(CC) $(CPPFLAGS) $(CFLAGS) push_swap.c $(NAME_LIB) -o $(NAME)
 	echo "\033[32mDone !\033[0m"
 
 clean :
@@ -54,6 +54,6 @@ clean :
 fclean : clean
 	echo "\033[32mBinary have been deleted.\033[0m"
 	$(RM) $(NAME_LIB)
-	$(RM) $(NAME_EXEC)
+	$(RM) $(NAME)
 
 re : fclean all
