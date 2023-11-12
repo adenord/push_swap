@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   logic_for_4_5.c                                    :+:      :+:    :+:   */
+/*   logic_for_5.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:13:00 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/11 10:54:27 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/12 14:09:12 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	final_sorting(t_circle **a, int loop_rr, int loop_rrr)
 	loop_rr = smart_s_rr_counter(a);
 	loop_rrr = smart_s_rrr_counter(a);
 	if (loop_rr <= loop_rrr)
-		rotate_loop(a, loop_rr, 0); 
+		rotate_loop(a, loop_rr, 0);
 	else
 		reverse_rotate_loop(a, loop_rrr, 0);
 }
@@ -39,7 +39,7 @@ void	logic_for_5(t_circle **a, t_circle **b, size_t perimeter)
 		loop_rr = smart_rr_counter(a, b, perimeter);
 		loop_rrr = smart_rrr_counter(a, b, perimeter);
 		if (loop_rr <= loop_rrr)
-			rotate_loop(a, loop_rr, 0); 
+			rotate_loop(a, loop_rr, 0);
 		else
 			reverse_rotate_loop(a, loop_rrr, 0);
 		push_a(a, b);

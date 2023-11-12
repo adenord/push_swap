@@ -6,13 +6,13 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:12:06 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/12 14:00:09 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/12 14:08:37 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	have_future(t_circle **a, t_circle **b)//, int index, int flag)
+static int	have_future(t_circle **a, t_circle **b)
 {
 	t_circle	*current;
 
@@ -59,7 +59,7 @@ static void	pre_rev_rot_loop(t_circle **a, t_circle **b, int index)
 void	rot_x(t_circle **a, t_circle **b, int index, int flag)
 {
 	int	rr;
-	int rrr;
+	int	rrr;
 
 	rr = smart_index_rr(b, index);
 	rrr = smart_index_rrr(b, index);

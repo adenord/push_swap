@@ -6,7 +6,7 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 14:25:07 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/08 10:08:49 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/12 14:07:38 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int	max_n(t_circle **a)
 
 void	logic_for_3(t_circle **a)
 {
-	int tab[3];
+	int	tab[3];
 
 	tab[0] = min_n(a);
 	tab[2] = max_n(a);

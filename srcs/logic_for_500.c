@@ -6,7 +6,7 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 12:06:23 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/11 16:17:10 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/12 14:06:34 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ void	logic_for_500(t_circle **a, t_circle **b, size_t perimeter)
 			push_a(a, b);
 		else
 			rot_x(a, b, (*a)->order - 1, 0);
-		// circle_display(a, b);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:02:37 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/10 20:58:15 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/12 14:07:14 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	smart_index_rr(t_circle **circle, int index)
 
 int	smart_index_rrr(t_circle **circle, int index)
 {
-	int	i;
+	int			i;
 	t_circle	*current;
 
 	i = 0;
