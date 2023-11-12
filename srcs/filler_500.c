@@ -6,7 +6,7 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 15:45:44 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/11 16:15:43 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/12 14:01:20 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static void	put_in_b_3(t_circle **a, t_circle **b, size_t perimeter)
 		if ((*a)->order <= i)
 		{
 			push_b(a, b);
-			if ((*b)->order <= ((i / 4) + i / 6) && (*a)->order > i)
+			if ((*b)->order <= (int)((perimeter / 7) * 5) && (*a)->order > i)
 				rotate_all(a, b);
-			else if ((*b)->order < ((i / 4) + i / 6))
+			else if ((*b)->order < (int)((perimeter / 7) * 5))
 				rotate_b(b);
 		}
 		else
