@@ -6,7 +6,7 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:47:18 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/04 18:30:07 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/12 15:34:44 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	arg_validator(int argc, char **argv)
 		i = 0;
 		if (argv[j][0] == '-' || argv[j][0] == '+')
 			i++;
+		if (ft_strlen(argv[j]) == 0)
+			return (error());
 		while (argv[j][i])
 		{
 			if (!ft_isdigit(argv[j][i]))
