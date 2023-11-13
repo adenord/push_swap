@@ -6,7 +6,7 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 07:45:53 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/11 16:14:11 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/13 10:35:22 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,14 @@ int			smart_index_rrr(t_circle **circle, int index);
 void		put_in_b(t_circle **a, t_circle **b, size_t perimeter);
 void		put_last_in_b(t_circle **a, t_circle **b, size_t perimeter);
 
+//BONUS
+int			read_and_check(t_circle **a, t_circle **b);
+void		push_a_bonus(t_circle **a, t_circle **b);
+void		push_b_bonus(t_circle **a, t_circle **b);
+void		rotate_x_bonus(t_circle **x);
+void		rotate_all_bonus(t_circle **a, t_circle **b);
+void		reverse_rotate_x_bonus(t_circle **x);
+void		reverse_rotate_all_bonus(t_circle **a, t_circle **b);
+void		swap_x_bonus(t_circle **x);
+void		swap_all_bonus(t_circle **a, t_circle **b);
 #endif
