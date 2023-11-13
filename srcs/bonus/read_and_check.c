@@ -6,7 +6,7 @@
 /*   By: adenord <alexandre.denord@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:17:28 by adenord           #+#    #+#             */
-/*   Updated: 2023/11/13 11:07:25 by adenord          ###   ########.fr       */
+/*   Updated: 2023/11/13 11:11:21 by adenord          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ int	read_and_check(t_circle **a, t_circle **b)
 		if (str)
 		{
 			if (!parser(str, a, b))
+			{
+				free(str);
 				return (error());
+			}
 			free(str);
 		}
 		str = get_next_line(0);
